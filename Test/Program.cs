@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Test
 {
@@ -9,12 +10,23 @@ namespace Test
         static void Main(string[] args)
         {
             //Console.WriteLine("Hello World!");
-            //注册编码提供程序
-            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            ////注册编码提供程序
+            //Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
 
             //Test1();
+
+
+            for (int i = 0; i < 3; i++)
+            {
+                Task.Run(() =>
+                {
+                    Test2();
+                });
+            }
             Test2();
+
+
             Console.Read();
         }
 
